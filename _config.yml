@@ -4,6 +4,17 @@
 # https://github.com/CollectionBuilder/collectionbuilder-gh
 ##########
 
+collections:
+  para:
+    sort_by: title
+    output: true
+
+defaults:
+  - scope:
+      type: para
+    values:
+      layout: para
+
 ##########
 # URL VARIABLES
 #
