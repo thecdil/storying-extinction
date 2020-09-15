@@ -1,4 +1,5 @@
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.latitude' -%}
+{%- assign items = items | where_exp: 'item','item.youtubeid' -%}
 {%- assign fields = site.data.config-map -%}
 <!-- load leaflet dependencies -->
 <script src="{{ '/assets/lib/leaflet/leaflet.js' | relative_url }}"></script>
