@@ -65,7 +65,7 @@ a{height 100%;width: 100%;}}
 <div class="container-fluid py-3 mt-3 mx-3">
     <div class="row">
     <div class="col-md-7 col-9">
-    <h1 class="h2 d-block d-lg-none">
+    <h1 class="h2 d-block {% unless page.url contains 'map.html' %}d-lg-none{% endunless %}">
         <a href="{{ '/' | absolute_url }}" class="text-dark text-uppercase font-weight-normal">Storying 
         Extinction</a></h1>
         {% if site.tagline %}<h2 class="text-muted h5 d-block d-lg-none">{{ site.tagline }}</h2>{% endif %}
