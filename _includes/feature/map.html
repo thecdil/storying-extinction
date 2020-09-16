@@ -1,6 +1,13 @@
-<div class="w-{{include.width | default: 100 }}">
-    <div id="map"></div>
+{% if include.full %}</section>
+</article>
 </div>
+</div>
+<div class="container-fluid">{% endif%}
+<div class="w-{{include.width | default: 100 }}">
+<div id="map"></div>
+</div>
+{% if include.full %}</div>{% endif%}
+
 
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.latitude' -%}
 {% if include.filter %}{%- assign items = items | where_exp: 'item',include.filter -%}{% endif %}
@@ -72,7 +79,7 @@ var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
     };
     L.control.layers(baseMaps).addTo(map);
     /* load base map */
-    {{ site.data.theme.map-base | default: 'Stamen_Toner' }}.addTo(map);
+    {{ include.basemap | default: 'Stamen_Terrain' }}.addTo(map);
 
 
     {% if site.data.theme.map-cluster == true %}
