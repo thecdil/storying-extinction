@@ -16,8 +16,8 @@ map-on: true
 #main-header, .main-footer, .leaflet-right{display: none;}
 </style>
 <div class="col-12 mt-1" >
-    <button id="map-toggler" type="button" class="float-right btn btn-outline-light m-2"  aria-label="Close" onclick="mapToggle()">
-        <span aria-hidden="true">X
+    <button id="map-toggler" type="button" class="float-right btn btn-outline-light m-2 "  aria-label="Close" onclick="mapToggle()">
+        <span aria-hidden="true"><i class="fas fa-map"></i>
         <br>
         <span class="small">View Map</span></span>
       </button>
@@ -102,9 +102,11 @@ map-on: true
 <script>
     function mapToggle(){
         document.getElementById('contents-container').classList.add('d-none');
-        document.getElementById('map-toggler').innerHTML = "<a href='{{ '/map.html' | relative_url }}'>Full Map</a>";
+        document.getElementById('map-toggler').innerHTML = "Full Map";
+        document.getElementById('map-toggler').setAttribute("onclick", "window.location.replace('{{ '/map.html' | relative_url }}')");;
+        
     };
     // function navToggle(){
-    //    document.getElementById('main-header').style.display = 'block';
+    //    location.href = "www.yoursite.com";
 //    };
 </script>
