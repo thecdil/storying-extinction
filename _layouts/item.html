@@ -13,14 +13,21 @@ map-on: true
 #item-image .img-fluid{
     max-height: 500px;
 }
-.main-header, .main-footer{display: none;}
+#main-header, .main-footer, .leaflet-right{display: none;}
 </style>
+<div class="col-12 mt-1" >
+    <button id="map-toggler" type="button" class="float-right btn btn-outline-light m-2"  aria-label="Close" onclick="mapToggle()">
+        <span aria-hidden="true">X
+        <br>
+        <span class="small">View Map</span></span>
+      </button>
+    </div>
 <div id="map" style="z-index:-100;"></div>
 <div class="container pt-5" id="contents-container" >
-    <ul class="breadcrumb h6 d-none" >
-        <li class="breadcrumb-item"><a class="text-dark" href="{{ '/' | absolute_url }}">{{ site.title }}</a></li>
-        <li class="breadcrumb-item text-secondary"><a class="text-dark" href="{{ '/browse.html' | absolute_url }}">Browse</a></li>
-        <li id="bc-title" class="breadcrumb-item active"></li>
+    <ul class="breadcrumb h5 bg-transparent" >
+        <li class="breadcrumb-item"><a class="text-white" href="{{ '/' | absolute_url }}">{{ site.title }}</a></li>
+        <li class="breadcrumb-item text-secondary"><a class="text-white" href="{{ '/browse.html' | absolute_url }}">Browse</a></li>
+        <li id="bc-title" class="breadcrumb-item active text-white"></li>
     </ul>
 
   
@@ -29,12 +36,8 @@ map-on: true
         <div class="spinner-border text-secondary" role="status"><span class="sr-only">Loading...</span></div>
     </div>
 
-    <div class="row bg-white mt-3" style="background: #ffffffa1 !important">
-        <div class="col-12">
-        <button type="button" class="float-right btn  btn-outline-secondary m-1"  aria-label="Close" onclick="document.getElementById('contents-container').classList.add('d-none');">
-            <span aria-hidden="true">X</span>
-          </button>
-        </div>
+    <div class="row mt-3" >
+        
 
         <div class="col-md-10 offset-md-1 mt-4" >
             
@@ -47,9 +50,31 @@ map-on: true
            
     </div>
         <div class="row mt-3">
+            <div class="col-md-6 offset-md-3" >
+                <div class="text-center mb-5">
+                <button class="btn btn-lg btn-outline-light" type="button" data-toggle="modal"  data-target="#metadataModal" aria-expanded="false" aria-controls="metadataModal">
+                    More Item Info 
+                  </button>
+                </div>
+                <div class="modal fade" id="metadataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Item Metadata</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="item-metadata" class="metadata">
 
-            <div class="col-md-6 offset-md-3 collapse" >
-            <div id="item-metadata" class="metadata">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div> 
     </div>
@@ -63,8 +88,8 @@ map-on: true
 
     <div id="item-nav">
         <div class="d-none d-md-block">
-            <a id="back-button" class="previous btn btn-lg btn-secondary">&laquo;</a>
-            <a id="next-button" class="next btn btn-lg btn-secondary">&raquo;</a>
+            <a id="back-button" class="previous btn btn-lg btn-outline-light">&laquo;</a>
+            <a id="next-button" class="next btn btn-lg btn-outline-light">&raquo;</a>
         </div>
     </div>
     {% else %}
@@ -73,3 +98,13 @@ map-on: true
     </div>
     {% endif %}
 </div>
+
+<script>
+    function mapToggle(){
+        document.getElementById('contents-container').classList.add('d-none');
+        document.getElementById('map-toggler').innerHTML = "<a href='{{ '/browse.html' | relative_url }}'>Back to Browse</a>";
+    };
+    // function navToggle(){
+    //    document.getElementById('main-header').style.display = 'block';
+//    };
+</script>
