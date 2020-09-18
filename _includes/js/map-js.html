@@ -25,7 +25,11 @@
         var latitudeHash = hashfilter.split(',')[0]
         var longitudeHash = hashfilter.split(',')[1]
         var map = L.map('map').setView([latitudeHash,longitudeHash],16);
-    } else {
+    } else if (window.location.href.indexOf("?id") > -1) {
+        console.log(record.longitude + ", " + record.latitude)
+        var map = L.map('map').setView([ record.latitude,record.longitude],14);
+    }
+      else {
         var map = L.map('map').setView([{{ site.data.theme.latitude | default: 46.727485 }},{{ site.data.theme.longitude | default: -117.014185 }}],{{ site.data.theme.zoom-level | default: 5 }});
     }
 
