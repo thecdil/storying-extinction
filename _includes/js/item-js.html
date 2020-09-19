@@ -154,7 +154,8 @@ function newRecord(nextRecord){
         /* Move Map */
     map.flyTo([record.latitude, record.longitude], 14, {
     animate: true,
-    duration: 1.5});
+    easeLinearity: .5,
+    duration: 3});
     /* Change URL parameter, i.e. id= */
     window.history.replaceState({}, '', location.pathname + '?id=' + nextRecord );
         /* add object */ 
