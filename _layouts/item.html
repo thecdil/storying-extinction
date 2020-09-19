@@ -14,6 +14,9 @@ map-on: true
     max-height: 500px;
 }
 #main-header, .main-footer, .leaflet-right{display: none;}
+.btn-outline-light:hover{
+    color:black !important;
+}
 </style>
 <div class="col-12 mt-1" >
     <button id="map-toggler" type="button" class="float-right btn btn-outline-light m-2 "  aria-label="Close" onclick="mapToggle()">
@@ -84,15 +87,15 @@ map-on: true
 
     {%- if site.data.theme.browse-buttons == true -%}
     <div class="text-center">
-        <a id="prev-button" class="btn btn-outline-light">&laquo; Previous</a>
-        <a class="btn btn-outline-light" href="{{ '/browse.html' | relative_url }}">Back to browse</a>
-        <a id="for-button" class="btn btn-outline-light">Next &raquo;</a>
+        <a id="prev-button" class="btn btn-outline-light text-white">&laquo; Previous</a>
+        <a class="btn btn-outline-light text-white" href="{{ '/browse.html' | relative_url }}">Back to browse</a>
+        <a id="for-button" class="btn btn-outline-light text-white">Next &raquo;</a>
     </div>
 
     <div id="item-nav">
         <div class="d-none d-md-block">
-            <a id="back-button" class="previous btn btn-lg btn-outline-light">&laquo;</a>
-            <a id="next-button" class="next btn btn-lg btn-outline-light">&raquo;</a>
+            <a id="back-button" class="previous btn btn-lg btn-outline-light text-white">&laquo;</a>
+            <a id="next-button" class="next btn btn-lg btn-outline-light text-white">&raquo;</a>
         </div>
     </div>
     {% else %}
