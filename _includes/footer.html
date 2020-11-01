@@ -2,7 +2,7 @@
 
     <div class="row align-items-center border-bottom border-white pb-4 mb-2">
 
-        <div class="col-md-8 mt-2">
+        <div class="col-md-4 mt-2">
 
             <h4><a href="{{ '/' | absolute_url }}" class="text-white font-weight-normal">{{ site.title }}</a></h4>
             <p class="text-white"><small>{{ site.description }}</small></p>
@@ -23,8 +23,14 @@
             </nav>
 
         </div>
-
+        <div class="col-md-4 mt-2 text-center">
+            <h4 class="text-white">Supported by:</h4> 
+            <a href="https://cdil.lib.uidaho.edu/" target="_blank" rel="noopener" title="Center for Digital Inquiry and Learning (CDIL) Logo">
+              <img src="{{ '/assets/img/cdil-white.png' | relative_url }}" class="img-fluid w-50" alt="CollectionBuilder logo" >
+          </a>
+        </div>
         <div class="col-md-4 mt-2 text-right">
+        
             <div class="justify-content-end">
                 {% include nav-search-lunr.html %}
             </div>
