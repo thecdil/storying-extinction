@@ -1,52 +1,63 @@
-<div class="col-3 col-md-5">
-    <h1 class="h2 d-none {% unless page.url contains 'map.html' %}d-lg-block{% endunless %}">
-    <a href="{{ '/' | absolute_url }}" class="text-dark text-uppercase font-weight-normal">Storying 
-    Extinction</a></h1>
-    {% if site.tagline %}<h2 class="px-3 text-muted h5 d-none {% unless page.url contains 'map.html' %}d-lg-block{% endunless %}">{{ site.tagline }}</h2>{% endif %}
-</h1>
-<nav class="justify-content-end navbar navbar-expand-lg {{ site.data.theme.navbar-color | default: 'navbar-dark' }} {{ site.data.theme.navbar-background | default: 'bg-dark' }} text-right ">
-   
-        <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#page-nav" aria-controls="page-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon justify-content-end"></span>
-        </button>
+<div class="container-fluid p-3 mt-3" id="main-header">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-6">
+            <h1 class="h2">
+                <a href="{{ '/' | absolute_url }}" class="text-dark text-uppercase font-weight-normal">Storying
+                    Extinction</a></h1>
+            <h2 class=" text-muted h5">{{ site.tagline }}</h2>
+            </h1>
+            <nav
+                class="justify-content-end navbar navbar-expand-lg {{ site.data.theme.navbar-color | default: 'navbar-dark' }} {{ site.data.theme.navbar-background | default: 'bg-dark' }} text-right ">
 
-        <div class="collapse navbar-collapse" id="page-nav">
-            <ul class="navbar-nav mr-auto justify-content-end">
-                {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nil' -%} 
-                {% for nav in navItems %}
-                {% if nav.stub contains 'para' %}
-                <li class="nav-item dropdown">
-                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
-                    {%- assign childStubs = navChildren | map: 'stub' -%}
-                    <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paratexts</a>
-                    <div class="dropdown-menu">
-                        {% for c in site.para %}
-                        <a class="dropdown-item {% if page.url == c.url %}active{% endif %}" href="{{ c.url | relative_url }}">{{ c.title }}</a>
-                        {% endfor %}
-                    </div>
-                </li>
-                {% elsif nav.stub %}
-                <li class="nav-item {% if page.url == nav.stub %}active{% endif %}">
-                    <a class="nav-link " href="{{ nav.stub | relative_url }}">{{ nav.display_name }}</a>
-                </li>
-                {%- else -%}
-                <li class="nav-item dropdown">
-                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
-                    {%- assign childStubs = navChildren | map: 'stub' -%}
-                    <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ nav.display_name }}</a>
-                    <div class="dropdown-menu">
-                        {% for c in navChildren %}
-                        <a class="dropdown-item {% if page.url == c.stub %}active{% endif %}" href="{{ c.stub | relative_url }}">{{ c.display_name }}</a>
-                        {% endfor %}
-                    </div>
-                </li>
-                {% endif %}
-                {%- endfor -%}
-            </ul>
-            
+                <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse"
+                    data-target="#page-nav" aria-controls="page-nav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon justify-content-end"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="page-nav">
+                    <ul class="navbar-nav mr-auto justify-content-end">
+                        {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nil' -%}
+                        {% for nav in navItems %}
+                        {% if nav.stub contains 'para' %}
+                        <li class="nav-item dropdown">
+                            {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
+                            {%- assign childStubs = navChildren | map: 'stub' -%}
+                            <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}"
+                                data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                aria-expanded="false">Paratexts</a>
+                            <div class="dropdown-menu">
+                                {% for c in site.para %}
+                                <a class="dropdown-item {% if page.url == c.url %}active{% endif %}"
+                                    href="{{ c.url | relative_url }}">{{ c.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        {% elsif nav.stub %}
+                        <li class="nav-item {% if page.url == nav.stub %}active{% endif %}">
+                            <a class="nav-link " href="{{ nav.stub | relative_url }}">{{ nav.display_name }}</a>
+                        </li>
+                        {%- else -%}
+                        <li class="nav-item dropdown">
+                            {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
+                            {%- assign childStubs = navChildren | map: 'stub' -%}
+                            <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}"
+                                data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                aria-expanded="false">{{ nav.display_name }}</a>
+                            <div class="dropdown-menu">
+                                {% for c in navChildren %}
+                                <a class="dropdown-item {% if page.url == c.stub %}active{% endif %}"
+                                    href="{{ c.stub | relative_url }}">{{ c.display_name }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        {% endif %}
+                        {%- endfor -%}
+                    </ul>
+
+                </div>
+
+            </nav>
         </div>
-    
-</nav>
-</div>
-</div>
+    </div>
 </div>

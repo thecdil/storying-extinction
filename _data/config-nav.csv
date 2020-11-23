@@ -1,10 +1,6 @@
 display_name,stub,dropdown_parent
-Paratext,/para/1.html
-Browse,,
-Items,/browse.html,Browse
-Subjects,/subjects.html,Browse
-Locations,/locations.html,Browse
-Map,/map.html,Browse
-Timeline,/timeline.html,Browse
-Data,/data/,Browse
+Browse,/browse.html
+Map,/map.html,
+Timeline,/timeline.html,
+Data,/data/,
 About,/about.html

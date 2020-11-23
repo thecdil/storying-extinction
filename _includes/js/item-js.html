@@ -28,7 +28,7 @@ var items = {
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-outline-light" title="Object download">Download Image</a>';
         } else if (format.includes('application')) {
-            itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="450px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
+            itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="650px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-outline-light" title="Object download">Download PDF</a>';
         } else if (format.includes('audio')) {
             itemImage= '<audio controls class="w-100"><source src="' + objectLink + '" target="_blank" type="audio/mpeg">Your browser does not support the audio element.</audio>';
@@ -166,7 +166,7 @@ function newRecord(nextRecord){
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-outline-light" title="Object download">Download Image</a>';
         } else if (format.includes('application')) {
-            itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="450px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
+            itemImage= '<object data="' + objectLink + '" type="application/pdf" width="100%" height="650px"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object>';
             itemLink= '<a href="' + objectLink + '" target="_blank" class="btn btn-outline-light" title="Object download">Download PDF</a>';
         } else if (format.includes('audio')) {
             itemImage= '<audio controls class="w-100"><source src="' + objectLink + '" target="_blank" type="audio/mpeg">Your browser does not support the audio element.</audio>';

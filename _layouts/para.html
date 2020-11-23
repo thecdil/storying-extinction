@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="container tufte-content">
     <article class="pt-0">   
         <section>
@@ -9,6 +8,10 @@ layout: default
         </section>
     </article>
 </div>
+
+{% if page.url == "/about.html" %}
+{% include about/credits.html %}
+{% endif %}
 
 {% capture the_collection %}{{ page.collection }}{% endcapture %}
 
