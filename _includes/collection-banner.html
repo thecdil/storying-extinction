@@ -15,12 +15,19 @@
     height: 100%;
     background-repeat: no-repeat;
     background-position: {{ site.data.theme.home-banner-image-position | default: 'center' }};
+   
 }
 #home-title-box {
     padding-top: {{ site.data.theme.home-title-y-padding | default: '5em' }};
     padding-bottom: {{ site.data.theme.home-title-y-padding | default: '5em' }};
 }
-.titleline{font-size:100px;}
+.titleline{font-size:90px; }
+.titleandtag {position: fixed; bottom: 0%; width:100%}
+.cdil-top {
+    position: fixed;
+    top: 5px;
+    right: 5px !important;
+}
 .fake-image-map{z-index: 100;
 position: fixed;
 bottom: 0;
@@ -33,8 +40,8 @@ a{height 100%;width: 100%;}}
         padding-top: 5em;
         padding-bottom: 5em; 
     }
-    .titleline{font-size:45px}
-    .tagline{font-size:30px;}
+    .titleline{font-size:55px; position: fixed; top: 10%; left: 10%; }
+    .tagline{font-size:30px;position: fixed; bottom: 15px;    left: 10%; margin-right: 10px;}
     .fake-image-map{
         height: 800px;
         width:100%;
@@ -49,8 +56,9 @@ a{height 100%;width: 100%;}}
 <div class="backgrounds">
 <div id="home-banner" class="container-fluid mb-0 p-0">
     <div id="home-title-box" >
-        <div class=" p-5 w-75 col-12 text-dark" style="position: fixed; bottom: 10px; ">
-            <h1 class="display-4 titleline"  id="titleline"><a class="text-dark" title="error no caribou" href="error.html" >{{ site.title }}</a></h1>
+        <div class=" pl-5
+        pb-2 w-100 col-12 text-dark titleandtag" >
+            <h1 class="display-4 titleline mb-0"  id="titleline"><a class="text-dark" title="error no caribou" href="error.html" >{{ site.title }}</a></h1>
             {% if site.tagline %}<p class="mb-0 h1 tagline">{{ site.tagline }}</p>{% endif %}
         </div>
     </div>
