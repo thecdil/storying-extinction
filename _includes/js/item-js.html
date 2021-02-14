@@ -5,7 +5,7 @@
 /* add item data */
 var items = { 
         {%- for item in site.data[site.metadata] -%}
-        {{ item.objectid | jsonify }} : { {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}: {{ item[f.field] | escape | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, "filename": {{ item.filename | jsonify }} }{% unless forloop.last %}, {% endunless %}
+        {{ item.objectid | jsonify }} : { {% for f in fields %}{% if item[f.field] %}{{ f.field | escape | jsonify }}: {{ item[f.field] | escape | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }},"image_small": {{ item.image_small | jsonify }}, "filename": {{ item.filename | jsonify }} }{% unless forloop.last %}, {% endunless %}
         {% endfor %}
     };
     /* get query id from URL */
@@ -22,7 +22,7 @@ var items = {
         document.getElementById("item-title").innerHTML = objectTitle;
         /* add object */ 
         var format = record.format;
-        var objectLink = '{{ "/objects/" | absolute_url }}' + record.filename;
+        var objectLink = record.image_small;
         var itemImage, itemLink;
         if (format.includes('image')) {
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
@@ -160,7 +160,7 @@ function newRecord(nextRecord){
     window.history.replaceState({}, '', location.pathname + '?id=' + nextRecord );
         /* add object */ 
         var format = record.format;
-        var objectLink = '{{ "/objects/" | absolute_url }}' + record.filename;
+        var objectLink = record.image_small;
         var itemImage, itemLink;
         if (format.includes('image')) {
             itemImage= '<div class="gallery-img" data-src="' + objectLink + '"><img class="img-fluid" src="' + objectLink + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';

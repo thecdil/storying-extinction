@@ -4,7 +4,7 @@
 </div>
 <div class="container-fluid">{% endif%}
 <div class="w-{{include.width | default: 100 }}">
-<div id="map"></div>
+<div id="map" {% if include.style%}style="{{ include.style}}"{% endif %}></div>
 </div>
 {% if include.full %}</div>{% endif%}
 

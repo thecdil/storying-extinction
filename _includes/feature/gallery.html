@@ -1,0 +1,12 @@
+{%- assign items = site.data[site.metadata] | where_exp: 'item','item.format contains "image" or item.format contains "video"' -%}
+{% if include.filter %}{%- assign items = items | where_exp: 'item',include.filter -%}{% endif %}
+
+<div class="row my-5 py-5">
+    {% for item in items %}
+    {% if item.image_thumb %}
+    <div class="col-2 m-1">
+        <a href="{{ '/item.html' | relative_url | append: '?id=' | append: item.objectid }}"><img alt="{{ item.description | escape }}" src="{% if item.youtubeid %}{{ 'https://img.youtube.com/vi/' | append: item.youtubeid | append: '/hqdefault.jpg' | relative_url }}{% else %}{{ item.image_thumb }}{% endif %}" /></a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
