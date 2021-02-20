@@ -19,7 +19,7 @@
                     <ul class="navbar-nav mr-auto justify-content-end">
                         {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nil' -%}
                         {% for nav in navItems %}
-                        {% if nav.stub contains 'para' %}
+                        {% if nav.display_name contains 'Para' %}
                         <li class="nav-item dropdown">
                             {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
                             {%- assign childStubs = navChildren | map: 'stub' -%}
@@ -28,6 +28,28 @@
                                 aria-expanded="false">Paratexts</a>
                             <div class="dropdown-menu">
                                 {% for c in site.para %}
+                                <a class="dropdown-item {% if page.url == c.url %}active{% endif %}"
+                                    href="{{ c.url | relative_url }}">{{ c.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}"
+                                data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                aria-expanded="false">Chris</a>
+                            <div class="dropdown-menu">
+                                {% for c in site.chris %}
+                                <a class="dropdown-item {% if page.url == c.url %}active{% endif %}"
+                                    href="{{ c.url | relative_url }}">{{ c.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}"
+                                data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                aria-expanded="false">Jack</a>
+                            <div class="dropdown-menu">
+                                {% for c in site.jack %}
                                 <a class="dropdown-item {% if page.url == c.url %}active{% endif %}"
                                     href="{{ c.url | relative_url }}">{{ c.title }}</a>
                                 {% endfor %}

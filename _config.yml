@@ -8,10 +8,24 @@ collections:
   para:
     sort_by: title
     output: true
+  chris:
+    sort_by: title
+    output: true
+  jack:
+    sort_by: title
+    output: true
 
 defaults:
   - scope:
       type: para
+    values:
+      layout: para
+  - scope:
+      type: chris
+    values:
+      layout: para
+  - scope:
+      type: jack
     values:
       layout: para
 
