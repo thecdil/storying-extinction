@@ -7,7 +7,7 @@ map-on: true
 
 ## Margin note 
 
-There are three levels of quote to use, and examples are below. 
+Margin
 
 ### Options:
 
