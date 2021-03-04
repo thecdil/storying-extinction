@@ -14,6 +14,11 @@ collections:
   jack:
     sort_by: title
     output: true
+  mapobjects:
+    output: true
+    source: mapobjects.csv
+    id_key: objectid
+    layout: mapitem
 
 defaults:
   - scope:
@@ -83,3 +88,6 @@ exclude: [docs/, Rakefile, README.md, LICENSE]
 # compress CSS output
 sass:
   style: compressed
+
+plugins:
+  - pagemaster
